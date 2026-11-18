@@ -1,0 +1,659 @@
+======================================================================
+Agent 1 Hello Agent   (run: python hello_agent.py)
+======================================================================
+Step 1: Thought -> {'action': 'calculator', 'input': '250 + 130 + 75'}
+Step 1: Observation -> 455
+Step 2: Thought -> {'action': 'finish', 'answer': 'The answer is 455'}
+Final answer: The answer is 455
+
+
+======================================================================
+Agent 2 Bill Calculator   (run: python bill_agent.py)
+======================================================================
+Step 1 Action: calculator {'expression': '3 * 40 + 2 * 10'}
+Step 1 Observation: 140
+Step 2 Action: apply_discount {'amount': 140, 'percent': 10}
+Step 2 Observation: 126.0
+Step 3 Action: add_gst {'amount': 126.0, 'percent': 12}
+Step 3 Observation: 141.12
+Step 4 Action: finish 
+Final answer: Final bill: Rs 141.12
+
+
+======================================================================
+Agent 3 Weather and Time   (run: python weather_time_agent.py)
+======================================================================
+
+Question: What is the time and weather in Delhi?
+Step 1 Action: get_time {'city': 'delhi'}
+Step 1 Observation: Delhi time: HH:MM AM
+Step 2 Action: get_weather {'city': 'delhi'}
+Step 2 Observation: Delhi weather: 31 C, Sunny (sample data)
+Step 3 Action: finish 
+Final answer: Delhi time: HH:MM AM | Delhi weather: 31 C, Sunny (sample data)
+
+Question: Weather in Tokyo
+Step 1 Action: get_weather {'city': 'tokyo'}
+Step 1 Observation: Tokyo weather: 16 C, Clear (sample data)
+Step 2 Action: finish 
+Final answer: Tokyo weather: 16 C, Clear (sample data)
+
+Question: What time is it in Paris?
+Step 1 Action: finish 
+Final answer: Which city do you mean? I know: delhi, kanpur, london, new york, tokyo
+
+
+======================================================================
+Agent 4 ReAct Reasoning   (run: python react_agent.py)
+======================================================================
+Step 1 Thought: I need the price of notebook first.
+Step 1 Action: lookup_price {'item': 'notebook'}
+Step 1 Observation: 40
+Step 2 Thought: I need the price of pen first.
+Step 2 Action: lookup_price {'item': 'pen'}
+Step 2 Observation: 10
+Step 3 Thought: I have all the prices. Now I can calculate the total.
+Step 3 Action: calculator {'expression': '12 * 40 + 5 * 10'}
+Step 3 Observation: 530
+Step 4 Thought: I have the total, so I can answer.
+Step 4 Action: finish 
+Final answer: The total cost is Rs 530.
+
+
+======================================================================
+Agent 5 Short-Term Memory   (run: python memory_agent.py)
+======================================================================
+Chat with the memory agent. Type 'history' to see memory, 'quit' to stop.
+You: My name is Anuj
+Agent: Okay, I will remember your name: Anuj.
+You: My city is Rampur
+Agent: Okay, I will remember your city: Rampur.
+You: What is my name?
+Agent: Your name is Anuj.
+You: What is my favourite colour?
+Agent: I do not know your favourite colour yet.
+You: history
+Facts: {'name': 'Anuj', 'city': 'Rampur'}
+Recent turns: [('user', 'My city is Rampur'), ('agent', 'Okay, I will remember your city: Rampur.'), ('user', 'What is my name?'), ('agent', 'Your name is Anuj.'), ('user', 'What is my favourite colour?'), ('agent', 'I do not know your favourite colour yet.')]
+You: quit
+
+======================================================================
+Agent 6 Note-Taking   (run: python notes_agent.py)
+======================================================================
+Note-taking agent  (type 'quit' to stop)
+You: note: Buy chart paper
+Agent: Saved note 1: Buy chart paper
+You: note: Call the printer about the bill
+Agent: Saved note 2: Call the printer about the bill
+You: show notes
+Agent: 1. Buy chart paper
+2. Call the printer about the bill
+You: find chart
+Agent: 1. Buy chart paper
+You: delete note 1
+Agent: Deleted note 1.
+You: show notes
+Agent: 2. Call the printer about the bill
+You: quit
+
+======================================================================
+Agent 7 To-Do and Reminder   (run: python todo_agent.py)
+======================================================================
+To-do and reminder agent  (type 'quit' to stop)
+You: add task Pay the supplier due tomorrow
+Agent: Added task 1: Pay the supplier (due 2026-11-16)
+You: add task Order chart paper due 2026-11-10
+Agent: Added task 2: Order chart paper (due 2026-11-10)
+You: add task Clean the shelf
+Agent: Added task 3: Clean the shelf
+You: show tasks
+Agent: 1. [ ] Pay the supplier (due 2026-11-16)
+2. [ ] Order chart paper (due 2026-11-10)
+3. [ ] Clean the shelf
+You: overdue
+Agent: 2. [ ] Order chart paper (due 2026-11-10)
+You: done 2
+Agent: Marked task 2 as done: Order chart paper
+You: show tasks
+Agent: 1. [ ] Pay the supplier (due 2026-11-16)
+3. [ ] Clean the shelf
+You: add task Test due next week
+Agent: Error: I do not understand the date 'next week'. Use today, tomorrow, in 3 days, or YYYY-MM-DD.
+You: quit
+
+======================================================================
+Agent 8 Calendar   (run: python calendar_agent.py)
+======================================================================
+Calendar agent  (type 'quit' to stop)
+You: meeting Supplier visit on tomorrow at 09:00 for 120 minutes
+Agent: Booked 'Supplier visit' on 2026-11-16 from 09:00 to 11:00.
+You: meeting Parent talk on tomorrow at 10:30 for 30 minutes
+Agent: I could not book 'Parent talk' at 10:30: Conflicts with 'Supplier visit' (09:00 to 11:00). The first free 30-minute slot that day is 11:00.
+You: meeting Parent talk on tomorrow at 11:00 for 30 minutes
+Agent: Booked 'Parent talk' on 2026-11-16 from 11:00 to 11:30.
+You: show events on tomorrow
+Agent: 09:00 to 11:00  Supplier visit
+11:00 to 11:30  Parent talk
+You: free slot on tomorrow for 45 minutes
+Agent: The first free slot is at 11:30.
+You: quit
+
+======================================================================
+Agent 9 Converter   (run: python converter_agent.py)
+======================================================================
+Unit and currency converter agent  (type 'quit' to stop)
+You: convert 5 km to miles
+Agent: 5 km = 3.1069 mile
+You: 100 c to f
+Agent: 100 C = 212 F
+You: 2 kg in pounds
+Agent: 2 kg = 4.4092 pound
+You: 50 usd to inr
+Agent: 50 USD = 4,150 INR (sample rates)
+You: 72 f to c
+Agent: 72 F = 22.2222 C
+You: 5 km to kg
+Agent: Error: Cannot convert length to weight
+You: 3 parsec to km
+Agent: Error: I do not know the unit 'parsec'
+You: quit
+
+======================================================================
+Agent 10 Daily Briefing   (run: python briefing_agent.py)
+======================================================================
+Good morning! Today is Sunday, 15 November 2026.
+
+Weather:
+Delhi weather: 31 C, Sunny (sample data)
+
+Today's events:
+No events on 2026-11-15.
+
+Tasks due today:
+No tasks due today.
+
+Overdue tasks:
+3. [ ] Order chart paper (due 2020-01-01)
+
+
+======================================================================
+Agent 11 Web Search   (run: python search_agent.py)
+======================================================================
+Web search agent  (type 'quit' to stop)
+You: python lists
+Agent: Top results for 'python lists':
+1. Python Lists Explained
+   https://example.org/python-lists
+   A list in Python stores many items in order. You can add, remove and slice items.
+You: how do AI agents save data
+Agent: Top results for 'how do AI agents save data' (I widened the search because no page matched every word):
+1. How AI Agents Work
+   https://example.org/ai-agents
+   An AI agent repeats a loop: think, act with a tool, observe the result.
+2. Saving Data with Python Files
+   https://example.org/python-files
+   Python can read and write text and JSON files so data survives restarts.
+3. Introduction to JSON
+   https://example.org/json-intro
+   JSON is a text format for lists and dictionaries, used to save and share data.
+You: sourdough recipes
+Agent: I found nothing for 'sourdough recipes'. Try different words.
+You: quit
+
+======================================================================
+Agent 12 News Research   (run: python news_agent.py)
+======================================================================
+News research agent  (type 'quit' to stop)
+You: load sample_news.xml
+Agent: Loaded 7 stories from sample_news.xml
+You: news about school
+Agent: News digest: 'school', last 7 days of the feed, 3 stories
+1. Greenfield school opens new computer lab - Daily Sample, 2026-11-14 (also reported by Learning Gazette)
+   Students at Greenfield Public School will learn coding in a new computer lab.
+   https://example.org/news/computer-lab-1
+2. Local market holds book fair - Learning Gazette, 2026-11-12
+   A three-day book fair opened at the local market.
+   https://example.org/news/book-fair
+3. Coding club wins state school quiz - Daily Sample, 2026-11-10
+   The Greenfield coding club won first place in the state quiz.
+   https://example.org/news/coding-quiz
+You: news about school last 3 days
+Agent: News digest: 'school', last 3 days of the feed, 2 stories
+1. Greenfield school opens new computer lab - Daily Sample, 2026-11-14 (also reported by Learning Gazette)
+   Students at Greenfield Public School will learn coding in a new computer lab.
+   https://example.org/news/computer-lab-1
+2. Local market holds book fair - Learning Gazette, 2026-11-12
+   A three-day book fair opened at the local market.
+   https://example.org/news/book-fair
+You: news about cricket
+Agent: No stories about 'cricket' in the last 7 days of the feed.
+You: quit
+
+======================================================================
+Agent 13 Web Scraping   (run: python scraper_agent.py)
+======================================================================
+Web scraping agent  (type 'quit' to stop)
+You: load sample_shop.html
+Agent: Loaded 'Ravi Stationery - Sample Page' (621 characters)
+You: title
+Agent: Ravi Stationery - Sample Page
+You: headings
+Agent: H1: Ravi Stationery
+H2: Products
+H2: Contact
+You: links
+Agent: Gel pens -> /pens
+Notebooks -> /notebooks
+Geometry boxes -> /boxes
+You: text
+Agent: Ravi Stationery - Sample Page Ravi Stationery Welcome to our small shop. We sell pens, notebooks and geometry boxes. Products Gel pens - Rs. 499 per box Notebooks - Rs. 40 each Geometry boxes - Rs. 85 each Contact Visit us near the bus stand. Open 9 am to 8 pm.
+You: quit
+
+======================================================================
+Agent 14 Price Tracker, day 1 (Rs 499)   (run: python price_agent.py)
+======================================================================
+Price tracker agent  (type 'quit' to stop)
+You: track gel pens from sample_product.html target 450
+Agent: Now tracking 'gel pens' from sample_product.html with target Rs 450.
+You: check gel pens
+Agent: gel pens: Rs 499 on 2026-11-15. This is the first check.
+You: quit
+
+======================================================================
+Agent 14 Price Tracker, day 2 (Rs 459)   (run: python price_agent.py)
+======================================================================
+Price tracker agent  (type 'quit' to stop)
+You: check gel pens
+Agent: gel pens: Rs 459 on 2026-11-16. Dropped by Rs 40 since 2026-11-15.
+You: quit
+
+======================================================================
+Agent 14 Price Tracker, day 3 (Rs 429)   (run: python price_agent.py)
+======================================================================
+Price tracker agent  (type 'quit' to stop)
+You: check gel pens
+Agent: gel pens: Rs 429 on 2026-11-17. Dropped by Rs 30 since 2026-11-16. ALERT: this is at or below your target of Rs 450.
+You: history gel pens
+Agent: 2026-11-15: Rs 499
+2026-11-16: Rs 459
+2026-11-17: Rs 429
+You: quit
+
+======================================================================
+Agent 15 Fact-Checker   (run: python factcheck_agent.py)
+======================================================================
+Fact-checker agent  (type 'quit' to stop)
+You: The Taj Mahal is in Agra.
+Agent: Claim: The Taj Mahal is in Agra.
+Verdict: SUPPORTED
+Evidence:
+- [Sample Encyclopedia] The Taj Mahal is in Agra, India.  -> agrees
+- [Sample Travel Guide] The Taj Mahal is located in the city of Agra.  -> agrees
+Note: this is a learning demo with a tiny sample fact base. Check important claims with trusted sources.
+You: The Taj Mahal is in Delhi.
+Agent: Claim: The Taj Mahal is in Delhi.
+Verdict: CONTRADICTED
+Evidence:
+- [Sample Encyclopedia] The Taj Mahal is in Agra, India.  -> disagrees ('delhi' is not in this source)
+- [Sample Travel Guide] The Taj Mahal is located in the city of Agra.  -> disagrees ('delhi' is not in this source)
+Note: this is a learning demo with a tiny sample fact base. Check important claims with trusted sources.
+You: Mount Everest is 7000 metres tall.
+Agent: Claim: Mount Everest is 7000 metres tall.
+Verdict: CONTRADICTED
+Evidence:
+- [Sample Atlas] Mount Everest is about 8,849 metres tall.  -> disagrees (the number 7000 is not in this source)
+- [Sample Science Handbook] The height of Mount Everest is roughly 8,849 metres.  -> disagrees (the number 7000 is not in this source)
+Note: this is a learning demo with a tiny sample fact base. Check important claims with trusted sources.
+You: Python was created by James Gosling.
+Agent: Claim: Python was created by James Gosling.
+Verdict: CONTRADICTED
+Evidence:
+- [Sample Tech Wiki] Python was created by Guido van Rossum.  -> disagrees ('james' is not in this source)
+Note: this is a learning demo with a tiny sample fact base. Check important claims with trusted sources.
+You: Python is a snake.
+Agent: Claim: Python is a snake.
+Verdict: NOT ENOUGH EVIDENCE
+I have no relevant source. That does not mean the claim is false.
+Note: this is a learning demo with a tiny sample fact base. Check important claims with trusted sources.
+You: quit
+
+======================================================================
+Agent 16 File Organizer   (run: python organizer_agent.py)
+======================================================================
+File organizer agent  (type 'quit' to stop)
+You: scan messy_folder
+Agent: 13 files in messy_folder:
+Archives: 1 file (24 B)
+Audio: 1 file (22 B)
+Code: 1 file (23 B)
+Documents: 3 files (75 B)
+Images: 2 files (52 B)
+Other: 1 file (26 B)
+Presentations: 1 file (25 B)
+Spreadsheets: 2 files (48 B)
+Video: 1 file (22 B)
+You: plan messy_folder
+Agent: PLAN (nothing has been moved yet):
+backup.zip  ->  Archives/
+budget.xlsx  ->  Spreadsheets/
+clip.mp4  ->  Video/
+holiday1.jpg  ->  Images/
+holiday2.png  ->  Images/
+invoice_oct.pdf  ->  Documents/
+mystery_file  ->  Other/
+notes.txt  ->  Documents/
+readme.md  ->  Documents/
+sales.csv  ->  Spreadsheets/
+script.py  ->  Code/
+slides.pptx  ->  Presentations/
+song.mp3  ->  Audio/
+Type 'confirm' to apply this plan, or 'cancel'.
+You: confirm
+Agent: Moved 13 files. Type 'undo' to put them back.
+You: scan messy_folder
+Agent: That folder has no files to organise.
+You: undo
+Agent: Put back 13 files.
+You: quit
+
+======================================================================
+Agent 17 Document Q&A (text and PDF)   (run: python doc_agent.py)
+======================================================================
+Document Q&A agent  (type 'quit' to stop)
+You: load sample_policy.txt
+Agent: Loaded sample_policy.txt: 6 passages.
+You: ask when is the shop open
+Agent: Here is what the document says:
+[sample_policy.txt, section 5] Opening hours The shop is open from 9 am to 8 pm, Monday to Saturday. On Sundays it opens from 10 am to 2 pm.
+You: ask can I return a used notebook
+Agent: Here is what the document says:
+[sample_policy.txt, section 2] Returns and exchanges Unused items can be returned within 7 days if the bill is shown. Opened geometry boxes and used notebooks cannot be returned. Exchanges are allowed for the same price or higher.
+You: ask do you sell mobile phones
+Agent: I could not find that in the document. I will not guess.
+You: load sample_policy.pdf
+Agent: Loaded sample_policy.pdf: 4 passages.
+You: ask what is the delivery charge
+Agent: Here is what the document says:
+[sample_policy.pdf, page 1] Delivery We deliver within 5 kilometres of the shop. Delivery is free for bills above 999 rupees. For smaller bills, the delivery charge is 30 rupees.
+You: quit
+
+======================================================================
+Agent 18 CSV and Excel Analyst   (run: python table_agent.py)
+======================================================================
+CSV and Excel analyst agent  (type 'quit' to stop)
+You: load sample_sales.csv
+Agent: Loaded sample_sales.csv: 15 rows, 6 columns.
+You: describe
+Agent: sample_sales.csv: 15 rows
+- date (text, for example 2026-11-01)
+- item (text, for example Gel pen box)
+- category (text, for example Pens)
+- quantity (number, for example 5)
+- price (number, for example 499)
+- revenue (number, for example 2495)
+You: sum revenue
+Agent: sum of revenue = 10,967
+You: average price
+Agent: average of price = 108.87
+You: revenue by category
+Agent: sum of revenue by category:
+- Pens: 5,252
+- Paper: 3,625
+- Geometry: 1,210
+- Stationery: 880
+You: top 3 revenue
+Agent: Top 3 rows by revenue:
+1. date=2026-11-01, item=Gel pen box, category=Pens, quantity=5, revenue=2495
+2. date=2026-11-05, item=Gel pen box, category=Pens, quantity=3, revenue=1497
+3. date=2026-11-04, item=Notebook, category=Paper, quantity=35, revenue=1400
+You: filter quantity > 25
+Agent: 3 rows where quantity > 25:
+- date=2026-11-03, item=Chart paper, category=Paper, quantity=30
+- date=2026-11-04, item=Notebook, category=Paper, quantity=35
+- date=2026-11-05, item=Eraser, category=Stationery, quantity=50
+You: sum colour
+Agent: Error: No column called 'colour'. Columns: date, item, category, quantity, price, revenue
+You: load sample_sales.xlsx
+Agent: Loaded sample_sales.xlsx: 15 rows, 6 columns.
+You: sum revenue
+Agent: sum of revenue = 10,967
+You: quit
+
+======================================================================
+Agent 19 Report Writer   (run: python report_agent.py)
+======================================================================
+Report writer agent  (type 'quit' to stop)
+You: report sample_sales.csv titled Weekly Sales Report
+Agent: Report saved: reports/sample_sales_2026-11-15.md
+Total revenue: Rs 10,967. Best category: Pens.
+Type 'show report' to read it.
+You: show report
+Agent: # Weekly Sales Report
+
+*Created on 2026-11-15*
+
+## Summary
+
+- Rows analysed: 15
+- Period: 2026-11-01 to 2026-11-07
+- Total revenue: Rs 10,967
+- Average per row: Rs 731.13
+
+## Best category
+
+The strongest category is **Pens** with Rs 5,252 (47.9% of the total).
+
+## Top 3 items
+
+1. Gel pen box: Rs 3,992
+2. Notebook: Rs 2,800
+3. Ball pen pack: Rs 1,260
+
+## Breakdown
+
+| Category | Revenue (Rs) | Share |
+|---|---:|---:|
+| Pens | 5,252 | 47.9% |
+| Paper | 3,625 | 33.1% |
+| Geometry | 1,210 | 11.0% |
+| Stationery | 880 | 8.0% |
+
+## Notes
+
+This report was generated automatically from `sample_sales.csv`. Check the numbers against your records before sharing it.
+You: quit
+
+======================================================================
+Agent 20 Cleanup and Backup   (run: python cleanup_agent.py)
+======================================================================
+Cleanup and backup agent  (type 'quit' to stop)
+You: duplicates cleanup_practice
+Agent: Group 1 (3 identical files, 47 B each):
+  keep:      notes.txt
+  duplicate: notes_copy.txt
+  duplicate: photos/notes_backup.txt
+Space used by duplicates: 94 B
+You: large cleanup_practice over 1
+Agent:    1.9 MB  photos/big_video.bin
+You: old cleanup_practice over 365
+Agent: <DATE>  old_stuff/ancient_list.txt
+You: plan clean cleanup_practice
+Agent: PLAN: move 2 duplicate files to '_trash' (nothing is deleted):
+  notes_copy.txt  ->  _trash/
+  photos/notes_backup.txt  ->  _trash/
+A backup is made first. Type 'confirm' to go ahead, or 'cancel'.
+You: confirm
+Agent: Backup saved: backups/cleanup_practice_YYYYMMDD-HHMMSS.zip (<SIZE>)
+Moved 2 duplicate files to _trash. Nothing was deleted.
+You: duplicates cleanup_practice
+Agent: No duplicate files found.
+You: quit
+
+======================================================================
+Agent 21 Email Summarizer   (run: python email_agent.py)
+======================================================================
+Email summarizer agent  (type 'quit' to stop)
+You: load sample_inbox
+Agent: Loaded 7 emails from sample_inbox.
+You: inbox
+Agent: 1. [MEDIUM] Meeting about the bulk order - Tuition Centre Office (2026-11-13)
+2. [SUSPICIOUS] URGENT: verify your account - Bank Support (2026-11-13)
+3. [HIGH] Wrong notebooks delivered - Mr. Khan (2026-11-12)
+4. [MEDIUM] Sunday call? - Neha (2026-11-12)
+5. [LOW] This week's stationery deals - Stationery Weekly (2026-11-11)
+6. [MEDIUM] Order for 200 notebooks - Mrs. Verma (2026-11-10)
+7. [HIGH] Invoice 1042 due Friday - Sharma Paper Supplies (2026-11-09)
+You: digest
+Agent: 7 emails: 1 suspicious, 2 high, 3 medium, 1 low
+SUSPICIOUS:
+  2. URGENT: verify your account - Bank Support
+HIGH:
+  3. Wrong notebooks delivered - Mr. Khan
+  7. Invoice 1042 due Friday - Sharma Paper Supplies
+MEDIUM:
+  1. Meeting about the bulk order - Tuition Centre Office
+  4. Sunday call? - Neha
+  6. Order for 200 notebooks - Mrs. Verma
+LOW:
+  5. This week's stationery deals - Stationery Weekly
+You: summary 7
+Agent: [HIGH] Invoice 1042 due Friday - from Sharma Paper Supplies
+Summary: Please find invoice 1042 for Rs 12,500. Payment is due by Friday, 20 November.
+Needs your attention:
+- Please confirm once it is paid.
+You: summary 6
+Agent: [MEDIUM] Order for 200 notebooks - from Mrs. Verma
+Summary: Greenfield Public School would like to order 200 notebooks and 50 geometry boxes for the new term. Can you share a quotation and a delivery date?
+Needs your attention:
+- Can you share a quotation and a delivery date?
+- We need the items by 1 December.
+You: summary 2
+Agent: WARNING: this email looks suspicious (URGENT: verify your account).
+Do not click links, open attachments or send passwords. If you are unsure, contact the sender through a number you already trust.
+You: quit
+
+======================================================================
+Agent 22 Reply Drafting   (run: python reply_agent.py)
+======================================================================
+Reply drafting agent  (type 'quit' to stop)
+You: load sample_inbox
+Agent: Loaded 7 emails from sample_inbox.
+You: draft 6 quote formal
+Agent: DRAFT (not sent). Saved as drafts/reply-6-order-for-200-notebooks.txt
+
+To: Mrs. Verma <verma@greenfield-school.example>
+Subject: Re: Order for 200 notebooks
+
+Dear Mrs. Verma,
+
+Thank you for your interest. I will send you the quotation you asked for by [DATE]. The prices will be [PRICES].
+
+Yours sincerely,
+Ravi
+Ravi Stationery
+
+Fill in before sending: [DATE], [PRICES]
+Read it carefully, then send it yourself from your email program.
+You: draft 3 later short
+Agent: DRAFT (not sent). Saved as drafts/reply-3-wrong-notebooks-delivered.txt
+
+To: Mr. Khan <khan@customer.example>
+Subject: Re: Wrong notebooks delivered
+
+Hi Mr. Khan,
+
+Thanks. I need a little more time and will reply by [DATE].
+
+Thanks,
+Ravi
+Ravi Stationery
+
+Fill in before sending: [DATE]
+Careful: this email is marked HIGH priority. Check that waiting or saying no is really what you want.
+Read it carefully, then send it yourself from your email program.
+You: draft 2 confirm
+Agent: Error: This email looks suspicious, so I will not write a reply. Do not click its links.
+You: quit
+
+======================================================================
+Agent 23 Meeting Scheduler   (run: python scheduler_agent.py)
+======================================================================
+Meeting scheduler agent  (type 'quit' to stop)
+You: load sample_inbox
+Agent: Loaded 7 emails from sample_inbox.
+You: schedule 4
+Agent: PROPOSAL (nothing is booked yet):
+  Call with Neha
+  Sunday 22 November at 18:00, 60 minutes
+  That time is free.
+  Reply draft: "Sunday 22 November at 18:00 works for me. I look forward to it."
+Type 'confirm' to book it and save the reply draft, or 'cancel'.
+You: confirm
+Agent: Booked 'Call with Neha' on 2026-11-22 from 18:00 to 19:00.
+Reply draft saved as drafts/meeting-reply-neha.txt. Send it yourself.
+You: book Supplier visit on tuesday at 15:45 for 60 minutes
+Agent: Booked 'Supplier visit' on 2026-11-17 from 15:45 to 16:45.
+You: schedule 1
+Agent: PROPOSAL (nothing is booked yet):
+  Meeting with Tuition Centre Office
+  Tuesday 17 November at 17:00, 30 minutes
+  16:00 is busy. This is the first free slot after it.
+  Reply draft: "Thank you. I am not free at 16:00, but Tuesday 17 November at 17:00 works for me. Would that be fine?"
+Type 'confirm' to book it and save the reply draft, or 'cancel'.
+You: quit
+
+======================================================================
+Agent 24 Shop Support   (run: python support_agent.py)
+======================================================================
+Shop support agent  (type 'quit' to stop)
+You: hello
+Agent: Hello! I am the Ravi Stationery helper. I can answer questions about returns, delivery, discounts, opening hours and payments, and check an order (type: order ORD-1001 phone 4321). Type 'human' to reach our team.
+You: when is the shop open
+Agent: Here is what our shop policy says:
+[sample_policy.txt, section 5] Opening hours The shop is open from 9 am to 8 pm, Monday to Saturday. On Sundays it opens from 10 am to 2 pm.
+You: order ORD-1001
+Agent: To protect your privacy, please also send the last 4 digits of your phone number, like this: order ORD-1001 phone 4321
+You: order ORD-1001 phone 4321
+Agent: Order ORD-1001 (10 ruled notebooks): Out for delivery.
+You: order ORD-1001 phone 0000
+Agent: I could not match that order number and phone number. Please check them and try again.
+You: do you sell mobile phones
+Agent: I am not sure about that. Could you ask in different words? Or type 'human' and I will pass it to our team.
+You: what about quantum computers
+Agent: I have passed this to our team as ticket T-0001. A person will contact you. Please do not share passwords or card numbers in this chat.
+You: you are useless and I am angry
+Agent: I have passed this to our team as ticket T-0002. A person will contact you. Please do not share passwords or card numbers in this chat.
+You: quit
+
+======================================================================
+Agent 25 Personal Assistant (practice chat)   (run: python assistant_bot.py)
+======================================================================
+Practice chat (no Telegram). Type /help, or 'quit' to stop.
+You: /help
+Bot: I am your personal assistant. Commands:
+/note <text>      save a note
+/notes            show your notes
+/task <text>      add a task, for example: /task pay supplier due tomorrow
+/tasks            show pending tasks
+/done <number>    mark a task as done
+/today            events and tasks for today
+/meet <details>   for example: /meet Parent talk on tomorrow at 15:00 for 30 minutes
+/convert <text>   for example: /convert 5 km to miles
+/brief            your morning briefing
+You: /note Buy chart paper
+Bot: Saved note 1: Buy chart paper
+You: /task Pay the supplier due today
+Bot: Added task 1: Pay the supplier (due 2026-11-15)
+You: /today
+Bot: Events:
+No events on 2026-11-15.
+
+Tasks:
+1. [ ] Pay the supplier (due 2026-11-15)
+You: /convert 5 km to miles
+Bot: 5 km = 3.1069 mile
+You: hello
+Bot: Please start with a command. Type /help to see them.
+You: /dance
+Bot: I do not know that command. Type /help.
+You: quit

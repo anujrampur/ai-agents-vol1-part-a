@@ -1,0 +1,7 @@
+# Optional libraries. Everything in the book works without them for text and CSV files.
+#   pypdf     -> lets Agent 17 read PDF files
+#   openpyxl  -> lets Agent 18 read Excel (.xlsx) files
+#   tzdata    -> time zone data; Windows needs it for Agent 3 on some Python installs
+pypdf
+openpyxl
+tzdata

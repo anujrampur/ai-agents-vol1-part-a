@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Folders that the practice programs create while you run them
+data/
+drafts/
+backups/
+reports/
+messy_folder/
+cleanup_practice/
+
+# Files that the check script writes
+my_outputs.txt
+differences.txt
+
+# Computer files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

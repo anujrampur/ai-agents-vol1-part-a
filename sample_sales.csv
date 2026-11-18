@@ -1,0 +1,16 @@
+date,item,category,quantity,price,revenue
+2026-11-01,Gel pen box,Pens,5,499,2495
+2026-11-01,Notebook,Paper,20,40,800
+2026-11-02,Geometry box,Geometry,4,85,340
+2026-11-02,Ball pen pack,Pens,12,60,720
+2026-11-03,Chart paper,Paper,30,15,450
+2026-11-03,Marker,Stationery,10,35,350
+2026-11-04,Compass,Geometry,3,120,360
+2026-11-04,Notebook,Paper,35,40,1400
+2026-11-05,Eraser,Stationery,50,5,250
+2026-11-05,Gel pen box,Pens,3,499,1497
+2026-11-06,Geometry box,Geometry,6,85,510
+2026-11-06,Chart paper,Paper,25,15,375
+2026-11-07,Marker,Stationery,8,35,280
+2026-11-07,Ball pen pack,Pens,9,60,540
+2026-11-07,Notebook,Paper,15,40,600

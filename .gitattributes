@@ -1,0 +1,7 @@
+# Let Git handle line endings, and never touch binary files
+* text=auto
+*.pdf binary
+*.xlsx binary
+*.zip binary
+*.png binary
+*.jpg binary

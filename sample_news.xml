@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample News (invented for learning)</title>
+    <item>
+      <title>Greenfield school opens new computer lab</title>
+      <link>https://example.org/news/computer-lab-1</link>
+      <description>Students at Greenfield Public School will learn coding in a new computer lab. The lab has 30 laptops.</description>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0530</pubDate>
+      <source>Daily Sample</source>
+    </item>
+    <item>
+      <title>Greenfield Public School launches new computer lab</title>
+      <link>https://example.org/news/computer-lab-2</link>
+      <description>A new computer lab opened on Saturday. Officials said coding classes start next week.</description>
+      <pubDate>Sat, 14 Nov 2026 11:30:00 +0530</pubDate>
+      <source>Learning Gazette</source>
+    </item>
+    <item>
+      <title>City bus timings change from Monday</title>
+      <link>https://example.org/news/bus-timings</link>
+      <description>The city transport office changed bus timings. Morning buses will start 15 minutes earlier.</description>
+      <pubDate>Fri, 13 Nov 2026 08:00:00 +0530</pubDate>
+      <source>Daily Sample</source>
+    </item>
+    <item>
+      <title>Local market holds book fair</title>
+      <link>https://example.org/news/book-fair</link>
+      <description>A three-day book fair opened at the local market. Many stalls offer discounts on school books.</description>
+      <pubDate>Thu, 12 Nov 2026 10:00:00 +0530</pubDate>
+      <source>Learning Gazette</source>
+    </item>
+    <item>
+      <title>Coding club wins state school quiz</title>
+      <link>https://example.org/news/coding-quiz</link>
+      <description>The Greenfield coding club won first place in the state quiz. The team practised for two months.</description>
+      <pubDate>Tue, 10 Nov 2026 16:00:00 +0530</pubDate>
+      <source>Daily Sample</source>
+    </item>
+    <item>
+      <title>Heavy rain expected this weekend</title>
+      <link>https://example.org/news/rain-warning</link>
+      <description>The weather office expects heavy rain. People should carry umbrellas.</description>
+      <pubDate>Thu, 05 Nov 2026 07:30:00 +0530</pubDate>
+      <source>Learning Gazette</source>
+    </item>
+    <item>
+      <title>Winter school hours announced</title>
+      <link>https://example.org/news/winter-hours</link>
+      <description>Schools will open at 9 am during the winter months.</description>
+      <pubDate>Fri, 30 Oct 2026 12:00:00 +0530</pubDate>
+      <source>Daily Sample</source>
+    </item>
+  </channel>
+</rss>

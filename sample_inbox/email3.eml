@@ -1,0 +1,27 @@
+From: Stationery Weekly <news@stationery-weekly.example>
+To: Ravi <ravi@ravistationery.example>
+Subject: This week's stationery deals
+Date: Wed, 11 Nov 2026 07:00:00 +0530
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============6367164956545518532=="
+
+--===============6367164956545518532==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Great deals on pens and paper this week. Read our newsletter for more.
+
+You can unsubscribe at any time.
+
+--===============6367164956545518532==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><p>Great deals on pens and paper this week. Read our newsletter f=
+or more.
+
+You can unsubscribe at any time.</p></body></html>
+
+--===============6367164956545518532==--

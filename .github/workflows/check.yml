@@ -1,0 +1,39 @@
+name: Check all agents
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    name: Python ${{ matrix.python }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        include:
+          - os: windows-latest
+            python: "3.9"
+          - os: windows-latest
+            python: "3.13"
+          - os: macos-latest
+            python: "3.12"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install the optional libraries
+        run: python -m pip install -r requirements-optional.txt
+      - name: Run all 25 agents and compare with the expected outputs
+        run: python run_all_agents.py
+      - name: Keep the differences, if any
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: differences-${{ matrix.os }}-${{ matrix.python }}
+          path: |
+            differences.txt
+            my_outputs.txt
