@@ -8,7 +8,9 @@ NAMES = [
 
 folder = Path("messy_folder")
 folder.mkdir(exist_ok=True)
+
 for name in NAMES:
-    (folder / name).write_text(f"Sample file: {name}\n", encoding="utf-8")
+    content = f"Sample file: {name}\n"
+    (folder / name).write_bytes(content.encode("utf-8"))
 
 print(f"Created {len(NAMES)} practice files in '{folder}'.")
